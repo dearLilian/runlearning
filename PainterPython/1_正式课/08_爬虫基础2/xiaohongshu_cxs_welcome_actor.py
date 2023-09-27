@@ -18,6 +18,7 @@ comment_file = "xhs_comment.csv"
 note_detail_file = "xhs_note.csv"
 
 cookie = "" ###!!!!这里要填入个人的cookie（另外注意不要把自己的cookie传给别人）
+cookie = "a1=188d903a6ebsycvs1m7p51d1p35280ti6l5nfbzno30000384502; webId=5e66a87d89240eb9783c68d554e87b58; gid=yYYfj8q0iiKyyYYfj8q0K1DudDMvShMy6WU22IlyfyUq2Iq8JY893i888qY428J8yf04Yqdf; gid.sign=t39uBFOVkroHc3CfHLl4FKLUdf0=; customerClientId=187675897385246; abRequestId=5e66a87d89240eb9783c68d554e87b58; x-user-id-creator.xiaohongshu.com=5655aa2df53ee04a5d81a8ce; ajs_user_id=KuV02fSqKPVuBUWqYb9110EqWsu1; ajs_anonymous_id=b454a71c-9d94-4c76-942b-d67184f05749; customerBeakerSessionId=f785f8e96755881ea9223ada0274255fbaaad760gAJ9cQAoWBAAAABjdXN0b21lclVzZXJUeXBlcQFLAlgOAAAAX2NyZWF0aW9uX3RpbWVxAkdB2UAc8CP3z1gJAAAAYXV0aFRva2VucQNYQQAAADExMTdkOWIwMjAxYTQwZmViM2ViYTFiYjA3ZGNiZDZiLTcxM2ZkNDQwZjNhMTRmMmM5MzIyMzhlNDI3MmQ3ODQ1cQRYAwAAAF9pZHEFWCAAAAAzMmNkOGFhNTYzMTM0NzY0ODc1ZmNlNTI4OTcwYjBjOXEGWA4AAABfYWNjZXNzZWRfdGltZXEHR0HZQBzwI/fPWAYAAAB1c2VySWRxCFgYAAAANjNkZjQ4Y2EyZmVjNjQwMDAxODM3MTNlcQlYAwAAAHNpZHEKWBgAAAA2NTAwNzNjMDY0MDAwMDAwMDAwMDAwMDRxC3Uu; customer-sso-sid=650073c06400000000000004; access-token-creator.xiaohongshu.com=customer.ares.AT-1672a0af2e5e41e7a00be885c96e6257-b3a0d16a02ea400d9f822632b37205e8; galaxy_creator_session_id=IygdSUGNIrIssYFB3zNJoYdUmVZz45OVrsmt; galaxy.creator.beaker.session.id=1694528449282009426735; xsecappid=xhs-pc-web; web_session=0400695d2a2e627ff89874d236374b78992b4c; amp_6e403e=bHnPVddE_7yjogiSt2fVCj...1haeo4247.1haeo4247.0.5.5; webBuild=3.8.2; websectiga=984412fef754c018e472127b8effd174be8a5d51061c991aadd200c69a2801d6; sec_poison_id=2607b1e8-b845-488c-b70b-9b3ff7e9f506"
 headers = {
     # "accept":"application/json,text/plain, */*",
     # "cache-control":"no-cache",
@@ -113,8 +114,7 @@ def search(keyword):
     api_url = 'https://edith.xiaohongshu.com' + api
     print("技术支持：~~~~~~v")
     response = requests.post(url=api_url, data=data_json.encode(), headers=headers)
-    print(response.status_code)
-
+    print(response.status_code, response.text)
     if response.status_code != 200:
         print("request failed", response.status_code)
         return None
@@ -335,11 +335,11 @@ def test_get_note_by_id():
     print("标签", tags)
 
     content_cols = ["title", "desc", "likes", "comment_count", "collected_count", "share_count", "ip_loc", "pub_time", "pics", "tags"]
-    
+    cols = ["note_id", "model_type", "user_id", "nickname", "avatar"] + content_cols
     note_content_list = []
     item = note_content + [' '.join(image_list), ' '.join(tags)]
     note_content_list.append(item)
-    content_df = pd.DataFrame(note_content_list, columns=content_cols)
+    content_df = pd.DataFrame(note_content_list, columns=cols)
     content_df.to_csv(note_detail_file, index=False)
 
 
@@ -382,6 +382,6 @@ def test_get_note_comment_by_id():
     comments = parse_note_comment(note_id)
 
 if __name__ == "__main__":
-    main()
+    # main()
     # test_get_note_comment_by_id()
-    # test_get_note_by_id()
+    test_get_note_by_id()
