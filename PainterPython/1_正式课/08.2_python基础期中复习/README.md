@@ -15,103 +15,183 @@
 
 ### 输入输出
 
-#### 输出: print()
+#### 输出：print()
 
 1. 常量字符串输出
-    ```python
-    print("Hello world!")
-    ```
+
+   ```python
+   print("Hello world!")
+   ```
 2. 单个变量输出
-    ```python
-    st = 'Hello World!'
-    print(st)
-    ```
+
+   ```python
+   st = 'Hello World!'
+   print(st)
+   ```
 3. 多个变量输出
-    ```python
-    a = 1
-    b = 3.2
-    c = "hello"
-    print(a, b, c)
-    ```
+
+   ```python
+   a = 1
+   b = 3.2
+   c = "hello"
+   print(a, b, c)
+   ```
 4. 混合输出
-    ```python
-    st = 'Hello world!'
-    print(st, ' Nice to meet you')
-    ```
 
+   ```python
+   st = 'Hello world!'
+   print(st, ' Nice to meet you')
+   ```
 5. 格式化输出
-    - 格式化操作符（%）: 可以使用%操作符来插入变量值到字符串中的占位符中。
-        ```python
-        name = 'Alice'
-        age = 18
-        print('Hello, my name is %s, I am %d years old' % (name, age))
-        ```
-        输出内容如下：
-        ```txt
-        Hello, my name is Alice, I am 18 years old
-        ```
-    - 字符串格式化方法（.format()）：使用.format()方法，可以通过占位符来插入变量值。
-        ```python
-        name = 'Alice'
-        age = 18
-        print('Hello, my name is {}, I am {} years old'.format(name, age))
-        ```
-        输出同上。
-    - f-strings（f字符串）：在字符串前面加上f，然后在字符串中使用大括号{}包含变量名。
-        ```python
-        name = 'Alice'
-        age = 18
-        print(f'Hello, my name is {name}, I am {age} years old')
-        ```
 
+   - 格式化操作符（%）: 可以使用%操作符来插入变量值到字符串中的占位符中。
+
+     ```python
+     name = 'Alice'
+     age = 18
+     print('Hello, my name is %s, I am %d years old' % (name, age))
+     ```
+
+     输出内容如下：
+
+     ```txt
+     Hello, my name is Alice, I am 18 years old
+     ```
+   - 字符串格式化方法（.format()）：使用.format()方法，可以通过占位符来插入变量值。
+
+     ```python
+     name = 'Alice'
+     age = 18
+     print('Hello, my name is {}, I am {} years old'.format(name, age))
+     ```
+
+     输出同上。
+   - f-strings（f字符串）：在字符串前面加上f，然后在字符串中使用大括号{}包含变量名。
+
+     ```python
+     name = 'Alice'
+     age = 18
+     print(f'Hello, my name is {name}, I am {age} years old')
+     ```
 6. 多行输出
-    ```python
-    # 方法一，各自print
-    a = 'Hello, Alice'
-    b = 'Hello, Bob'
-    print(a)
-    print(b)
 
-    # 方法二，使用换行符'\n'连接
-    print(a + '\n' + b)
-    ```
-    输出内容如下：
-    ```text
-    Hello, Alice
-    Hello, Bob
-    Hello, Alice
-    Hello, Bob
-    ```
+   ```python
+   # 方法一，各自print
+   a = 'Hello, Alice'
+   b = 'Hello, Bob'
+   print(a)
+   print(b)
 
+   # 方法二，使用换行符'\n'连接
+   print(a + '\n' + b)
+   ```
 
-7. 使用自定义符号结尾（不换行）: 使用`end`参数指定结尾字符。
-    ```python
-    for i in range(10):
-        print(i, end=',')
-    ```
-    输出如下：
-    ```text
-    0,1,2,3,4,5,6,7,8,9,
-    ```
+   输出内容如下：
 
-    对比不使用end指定的情况：
-    ```text
-    1
-    2
-    3
-    4
-    5
-    6
-    7
-    8
-    9
-    ```
+   ```text
+   Hello, Alice
+   Hello, Bob
+   Hello, Alice
+   Hello, Bob
+   ```
+7. 使用自定义符号结尾（不换行）: 使用 `end`参数指定结尾字符。
 
-7. 自定义
+   ```python
+   for i in range(10):
+       print(i, end=',')
+   ```
 
+   输出如下：
+
+   ```text
+   0,1,2,3,4,5,6,7,8,9,
+   ```
+
+   对比不使用end指定的情况：
+
+   ```text
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   ```
 
 #### 输入：input()
 
+`input()` 函数是Python内置函数，用于从用户获取输入。
+
+1. **获取整数输入：**
+
+   ```python
+   age = int(input("请输入您的年龄："))
+   ```
+
+   这将获取用户输入的字符串，然后将其转换为整数。
+2. **获取浮点数输入：**
+
+   ```python
+   weight = float(input("请输入您的体重（kg）："))
+   ```
+
+   同样，这将获取用户输入的字符串，然后将其转换为浮点数。
+3. **获取多个输入值：**
+
+   ```python
+   name = input("请输入您的名字：")
+   age = int(input("请输入您的年龄："))
+   ```
+
+   可以使用多次 `input()` 来获取多个输入值。
+4. **获取多个输入值并分隔：**
+
+   ```python
+   input_str = input("请输入多个数值（用空格分隔）：")
+   values = input_str.split()  # 将输入字符串分割成列表
+   ```
+
+   这将获取一个包含多个数值的输入字符串，然后使用 `split()` 方法将其分隔成列表。
+5. **获取多行文本输入：**
+
+   ```python
+   text = input("请输入多行文本（以EOF结束）：\n")
+   ```
+
+   这将允许用户输入多行文本，以EOF（通常是Ctrl+D或Ctrl+Z，具体取决于操作系统）结束输入。
+6. **输入验证：**
+
+   您可以使用循环和条件语句来验证用户输入是否满足特定条件，并在输入不符合条件时要求用户重新输入。
+
+   ```python
+    while True:
+        age = input("请输入您的年龄：")
+        if age.isdigit():
+            age = int(age)
+            print(f"输入的年龄是{age}")
+            break
+        else:
+            print(f"{age}这是一个无效的年龄。请输入有效的年龄。")
+   ```
+
+   在这个示例中，如果用户输入的不是有效的数字，程序将继续要求用户重新输入。
+7. **使用异常处理：**
+
+   您还可以使用异常处理来处理用户输入错误。例如：
+
+   ```python
+    age_str = input("请输入您的年龄：")
+    try:
+        age = int(age_str)
+        print(f"输入的年龄是{age}")
+    except ValueError:
+        print(f"{age_str}这是一个无效的年龄。请输入有效的年龄。")
+   ```
+
+   这将捕获输入无效的异常并提供错误消息。
 
 ### 掌握使用基础数据类型以及变量操作数据
 
@@ -130,6 +210,7 @@ is_student = True
 Python支持各种运算符，用于执行不同类型的操作。以下是一些常见的Python运算符及其功能：
 
 1. **算术运算符：**
+
    - `+`：加法，用于将两个数相加。
    - `-`：减法，用于将一个数减去另一个数。
    - `*`：乘法，用于将两个数相乘。
@@ -137,43 +218,42 @@ Python支持各种运算符，用于执行不同类型的操作。以下是一�
    - `//`：整除，返回除法的整数部分。
    - `%`：取余，返回除法的余数。
    - `**`：幂运算，用于计算一个数的指数幂。
-
 2. **比较运算符：**
+
    - `==`：等于，用于检查两个值是否相等。
    - `!=`：不等于，用于检查两个值是否不相等。
    - `<`：小于，用于检查一个值是否小于另一个值。
    - `>`：大于，用于检查一个值是否大于另一个值。
    - `<=`：小于等于，用于检查一个值是否小于或等于另一个值。
    - `>=`：大于等于，用于检查一个值是否大于或等于另一个值。
-
 3. **逻辑运算符：**
+
    - `and`：逻辑与，用于检查多个条件是否都为真。
    - `or`：逻辑或，用于检查多个条件是否至少有一个为真。
    - `not`：逻辑非，用于取反一个条件的值。
-
 4. **赋值运算符：**
+
    - `=`：赋值，用于将一个值赋给一个变量。
    - `+=`、`-=`、`*=`、`/=`：复合赋值运算符，用于在赋值的同时执行算术操作。
-
 5. **位运算符：**
+
    - `&`：按位与，对二进制数的每一位执行与操作。
    - `|`：按位或，对二进制数的每一位执行或操作。
    - `^`：按位异或，对二进制数的每一位执行异或操作。
    - `~`：按位取反，对二进制数的每一位执行取反操作。
    - `<<`：左移，将二进制数向左移动指定的位数。
    - `>>`：右移，将二进制数向右移动指定的位数。
-
 6. **成员运算符：**
+
    - `in`：用于检查一个值是否存在于序列（如列表、元组、字典等）中。
    - `not in`：用于检查一个值是否不存在于序列中。
-
 7. **身份运算符：**
+
    - `is`：用于检查两个对象是否引用了相同的内存地址。
    - `is not`：用于检查两个对象是否引用了不同的内存地址。
-
 8. **三元条件运算符：**
-   - `value_if_true if condition else value_if_false`：用于根据条件选择不同的值。
 
+   - `value_if_true if condition else value_if_false`：用于根据条件选择不同的值。
 
 ### 掌握使用逻辑语句（for，while，if，break，continue)
 
@@ -218,7 +298,6 @@ for i in range(1, 6):
 	print("奇数打印出来:{i}")
 
 ```
-
 
 - break是跳出当前循环体，即不管循环是否结束，break直接跳到循环外的下一段代码
 
@@ -352,19 +431,13 @@ print(message)
 
 但初学时，我们重要的是对这些库有大概的印象即可。而着重记忆一些我们经常使用的函数即可。下面是非常常用的函数及其用法。
 
-
-
 ##### **函数名：print()**
-
 
 **功能：** 用于将文本或变量的值输出到控制台。
 
-
 **参数：** 可以接受多个参数，用逗号分隔，用于指定要打印的内容。
 
-
 **返回值：** 无返回值（None）。
-
 
 **使用示例：**
 
@@ -373,20 +446,13 @@ print("Hello, World!")
 print("The answer is", 42)
 ```
 
-
-
-
 ##### **函数名：input()**
-
 
 **功能：** 用于从用户获取输入。
 
-
 **参数：** 可以接受一个字符串参数，用于显示提示信息。
 
-
 **返回值：** 返回用户输入的字符串。
-
 
 **使用示例：**
 
@@ -394,18 +460,13 @@ print("The answer is", 42)
 name = input("Please enter your name: ")
 ```
 
-
 ##### **函数名：len()**
-
 
 **功能：** 用于获取序列（如字符串、列表、元组等）的长度。
 
-
 **参数：** 接受一个序列作为参数。
 
-
 **返回值：** 返回序列的长度，通常是一个整数。
-
 
 **使用示例：**
 
@@ -413,23 +474,13 @@ name = input("Please enter your name: ")
 length = len("Hello, World!")
 ```
 
-
-
 ##### **函数名：range()**
-
-
 
 **功能：** 用于生成一系列整数，通常在循环中使用。
 
-
-
 **参数：** 可以接受一个、两个或三个参数，分别表示起始值、结束值和步长。
 
-
-
 **返回值：** 返回一个可迭代对象，通常用于循环。
-
-
 
 **使用示例：**
 
@@ -437,8 +488,6 @@ length = len("Hello, World!")
 for i in range(1, 6):
     print(i)
 ```
-
-
 
 ##### **函数名：type()**
 
@@ -448,14 +497,11 @@ for i in range(1, 6):
 
 **- 返回值：** 返回对象的类型，通常是一个类。
 
-
-
 **使用示例：**
 
 ```python
 data_type = type(42)
 ```
-
 
 这些示例帮助了解这些常见函数的功能、参数、返回值以及如何使用它们。
 
