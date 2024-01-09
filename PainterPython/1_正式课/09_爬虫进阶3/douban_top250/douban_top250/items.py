@@ -17,3 +17,7 @@ class DoubanTop250Item(scrapy.Item):
     quote = scrapy.Field() #电影引言
     subject = scrapy.Field() #电影的详细内容链接
     pass
+
+
+class DoubanKeywordSearchResultItem(scrapy.Item):
+    link = scrapy.Field()

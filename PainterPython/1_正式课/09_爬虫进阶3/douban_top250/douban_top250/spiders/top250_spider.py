@@ -2,6 +2,8 @@ from scrapy.spiders import Spider
 from douban_top250.items import DoubanTop250Item
 from scrapy import Request
 from bs4 import BeautifulSoup
+from urllib.parse import quote
+
 
 class Top250Spider(Spider):
     name = 'douban_movie_top250'
