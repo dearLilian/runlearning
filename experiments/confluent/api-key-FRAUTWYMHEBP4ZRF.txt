@@ -1,0 +1,10 @@
+=== Confluent Cloud API key: lkc-mzo007 ===
+
+API key:
+FRAUTWYMHEBP4ZRF
+
+API secret:
+5IdjUgwpFIwbXbYD52yy0OH9xabA10sVI2NUfcu4qlpza3OQXWpTj+bEUguT+WFK
+
+Bootstrap server:
+pkc-4r087.us-west2.gcp.confluent.cloud:9092
